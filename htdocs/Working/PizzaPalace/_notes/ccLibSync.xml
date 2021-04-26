@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<CCLibSyncEntry>
+
+  <syncentry adobeStockID="129567115" creationTime="1512836982809" elementRef="cloud-asset://cc-api-storage.adobe.io/assets/adobe-libraries/1a484f47-3da2-492d-a711-07d86723f9bf;node=d55ec09b-bc03-498b-8b74-ee3cad2ebbcb" filename="pizza for you" formatType="3" height="422" isOptimized="FALSE" isUnlicensedStockAsset="TRUE" libraryName="My Library" linkUpdateStatus="FALSE" localCCLibPath="C:/Users/Alec McAllister/AppData/Roaming/Adobe/Creative Cloud Libraries/LIBS/0FBD6544591539B60A495C7F_AdobeID/creative_cloud/renditions/1a484f47-3da2-492d-a711-07d86723f9bf/663283a5-030f-4c0f-b4cf-ef678cd50c74.jpeg" localSitePath="C:\xampp\htdocs\PizzaPalace\images\pizza_for_you.jpg" modifiedTime="1512836982854" primaryType="image/jpeg" siteName="PizzaPalace" type="image" width="1000"/>
+
+  <syncentry adobeStockID="68071707" creationTime="1512837364795" elementRef="cloud-asset://cc-api-storage.adobe.io/assets/adobe-libraries/1a484f47-3da2-492d-a711-07d86723f9bf;node=5e59eeee-44ef-4e90-b1a7-c06d3463bcc2" filename="Italian food ingredients." formatType="3" height="656" isOptimized="FALSE" isUnlicensedStockAsset="TRUE" libraryName="My Library" linkUpdateStatus="FALSE" localCCLibPath="C:/Users/Alec McAllister/AppData/Roaming/Adobe/Creative Cloud Libraries/LIBS/0FBD6544591539B60A495C7F_AdobeID/creative_cloud/renditions/1a484f47-3da2-492d-a711-07d86723f9bf/c0d18a55-db0e-4f3b-a9c1-8085262960f5.jpeg" localSitePath="C:\xampp\htdocs\PizzaPalace\images\Italian_food_ingredients.jpg" modifiedTime="1512837364814" primaryType="image/jpeg" siteName="PizzaPalace" type="image" width="1000"/>
+
+</CCLibSyncEntry>

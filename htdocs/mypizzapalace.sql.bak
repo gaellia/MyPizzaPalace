@@ -1,0 +1,603 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 11, 2017 at 08:59 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `mypizzapalace`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cook`
+--
+
+CREATE TABLE `cook` (
+  `EID` int(9) NOT NULL,
+  `OID` int(11) NOT NULL,
+  `Time` varchar(255) DEFAULT NULL,
+  `Status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `CID` int(9) NOT NULL,
+  `First_name` varchar(255) NOT NULL,
+  `Last_name` varchar(255) NOT NULL,
+  `Phone` varchar(255) NOT NULL,
+  `Address` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`CID`, `First_name`, `Last_name`, `Phone`, `Address`) VALUES
+(145412771, 'Philip', 'Borowoy', '6464646464', '64646464');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `driver`
+--
+
+CREATE TABLE `driver` (
+  `EID` int(9) NOT NULL,
+  `OID` int(11) NOT NULL,
+  `Time` varchar(255) DEFAULT NULL,
+  `Status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `EID` int(9) NOT NULL,
+  `First_name` varchar(255) NOT NULL,
+  `Last_name` varchar(255) NOT NULL,
+  `Phone` varchar(12) NOT NULL,
+  `Street` varchar(255) NOT NULL,
+  `City` varchar(255) NOT NULL,
+  `Country` varchar(255) NOT NULL,
+  `Wage` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`EID`, `First_name`, `Last_name`, `Phone`, `Street`, `City`, `Country`, `Wage`) VALUES
+(111111111, 'Jack', 'Daniels', '519-458-8973', '2216 23 st sw', 'Calgary', 'Canada', '0.00'),
+(440645320, 'Jane', 'Doe', '111-222-3333', '1234 Fake St', 'Nowhere', 'Not Here', '4.00'),
+(531324778, 'Kevin', 'Vo', '231-343-2342', '234 Ya man dr', 'Calgary', 'Canada', '4.00'),
+(550882530, 'Bob', 'Marley', '456-290-0069', '42 Mary Ln Apt O', 'Trench Town', 'Jamaica', '4.20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inventory`
+--
+
+CREATE TABLE `inventory` (
+  `VID` int(3) NOT NULL,
+  `Inv_name` text NOT NULL,
+  `Inv_Count` int(11) NOT NULL,
+  `Inv_OnOrder` int(11) NOT NULL,
+  `Inv_Cost100` int(3) NOT NULL,
+  `Ordered_On` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`VID`, `Inv_name`, `Inv_Count`, `Inv_OnOrder`, `Inv_Cost100`, `Ordered_On`) VALUES
+(1, 'Pizza Box', 154, 0, 5, '-'),
+(2, 'WingBox', 134, 0, 4, '-'),
+(3, 'SaladBox', 84, 0, 3, '-'),
+(4, 'PizzaDough', 1020, 0, 20, '-'),
+(5, 'Cheese', 1030, 0, 25, '-'),
+(6, 'Pepperoni', 53, 0, 15, '-'),
+(7, 'Wings', 312, 0, 5, '-');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `manager`
+--
+
+CREATE TABLE `manager` (
+  `EID` int(9) NOT NULL,
+  `shift` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `manager`
+--
+
+INSERT INTO `manager` (`EID`, `shift`) VALUES
+(111111111, 'MTWTFSS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menuitem`
+--
+
+CREATE TABLE `menuitem` (
+  `IID` int(11) NOT NULL,
+  `Item_name` varchar(20) NOT NULL,
+  `Price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menuitem`
+--
+
+INSERT INTO `menuitem` (`IID`, `Item_name`, `Price`) VALUES
+(1, 'Hawaii', 7),
+(2, 'Peppy', 5),
+(3, 'Cheesy', 3),
+(4, 'Mild Wings', 5),
+(5, 'Medium Wings', 5),
+(6, 'Hot Wings', 5),
+(7, 'Greek', 20),
+(8, 'Caesar', 20),
+(9, 'Garden', 20),
+(10, 'Coke', 2),
+(11, 'Sprite', 2),
+(12, 'Fanta', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `OID` int(11) NOT NULL,
+  `Date` varchar(255) NOT NULL,
+  `Total` int(11) NOT NULL,
+  `Time` varchar(255) NOT NULL,
+  `Status` varchar(255) NOT NULL,
+  `CID` int(9) NOT NULL,
+  `Order_Type` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`OID`, `Date`, `Total`, `Time`, `Status`, `CID`, `Order_Type`) VALUES
+(108170180, '12.09.17', 14, '23:07:24', 'Delivered', 145412771, 'Delivery'),
+(117457139, '12.07.17', 15, '02:11:48', 'Delivered', 145412771, 'Delivery'),
+(151235779, '12.08.17', 15, '08:37:01', 'Delivered', 145412771, 'Delivery'),
+(161011526, '12.09.17', 10, '23:11:41', 'Delivered', 145412771, 'Delivery'),
+(165465807, '12.09.17', 10, '23:10:33', 'Active', 145412771, 'Delivery'),
+(166377928, '12.09.17', 10, '22:57:06', 'Active', 145412771, 'Delivery'),
+(176013104, '12.09.17', 15, '23:13:00', 'Ready', 145412771, 'Delivery'),
+(705992378, '12.06.17', 15, '17:29:47', 'Ready', 145412771, 'Delivery');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderitems`
+--
+
+CREATE TABLE `orderitems` (
+  `OID` int(11) NOT NULL,
+  `ItemIndex` int(3) NOT NULL,
+  `IID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderitems`
+--
+
+INSERT INTO `orderitems` (`OID`, `ItemIndex`, `IID`) VALUES
+(108170180, 0, 1),
+(108170180, 1, 1),
+(117457139, 0, 1),
+(117457139, 1, 2),
+(117457139, 2, 3),
+(151235779, 0, 1),
+(151235779, 1, 2),
+(151235779, 2, 3),
+(161011526, 0, 4),
+(161011526, 1, 4),
+(165465807, 0, 5),
+(165465807, 1, 5),
+(166377928, 0, 4),
+(166377928, 1, 4),
+(176013104, 0, 1),
+(176013104, 1, 2),
+(176013104, 2, 3),
+(705992378, 0, 1),
+(705992378, 1, 2),
+(705992378, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `revenue`
+--
+
+CREATE TABLE `revenue` (
+  `Week` varchar(20) NOT NULL,
+  `Cost_Emp` int(10) NOT NULL,
+  `Cost_Inv` int(10) NOT NULL,
+  `Sales` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `revenue`
+--
+
+INSERT INTO `revenue` (`Week`, `Cost_Emp`, `Cost_Inv`, `Sales`) VALUES
+('2017-W50', 918, 455, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shift`
+--
+
+CREATE TABLE `shift` (
+  `Week` varchar(12) NOT NULL,
+  `EID` int(9) NOT NULL,
+  `Day` varchar(10) NOT NULL,
+  `Shift_Type` varchar(255) NOT NULL,
+  `Position` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shift`
+--
+
+INSERT INTO `shift` (`Week`, `EID`, `Day`, `Shift_Type`, `Position`) VALUES
+('2017-W48', 111111111, 'Friday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Friday', 'Night', 'Manager'),
+('2017-W48', 111111111, 'Monday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Monday', 'Night', 'Manager'),
+('2017-W48', 111111111, 'Saturday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Saturday', 'Night', 'Manager'),
+('2017-W48', 111111111, 'Sunday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Sunday', 'Night', 'Manager'),
+('2017-W48', 111111111, 'Thursday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Thursday', 'Night', 'Manager'),
+('2017-W48', 111111111, 'Tuesday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Tuesday', 'Night', 'Manager'),
+('2017-W48', 111111111, 'Wednesday', 'Day', 'Manager'),
+('2017-W48', 111111111, 'Wednesday', 'Night', 'Manager'),
+('2017-W48', 440645320, 'Friday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Friday', 'Night', 'Cook'),
+('2017-W48', 440645320, 'Monday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Monday', 'Night', 'Cook'),
+('2017-W48', 440645320, 'Saturday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Saturday', 'Night', 'Cook'),
+('2017-W48', 440645320, 'Sunday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Sunday', 'Night', 'Cook'),
+('2017-W48', 440645320, 'Thursday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Thursday', 'Night', 'Cook'),
+('2017-W48', 440645320, 'Tuesday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Tuesday', 'Night', 'Cook'),
+('2017-W48', 440645320, 'Wednesday', 'Day', 'Cook'),
+('2017-W48', 440645320, 'Wednesday', 'Night', 'Cook'),
+('2017-W48', 550882530, 'Friday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Friday', 'Night', 'Driver'),
+('2017-W48', 550882530, 'Monday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Monday', 'Night', 'Driver'),
+('2017-W48', 550882530, 'Saturday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Saturday', 'Night', 'Driver'),
+('2017-W48', 550882530, 'Sunday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Sunday', 'Night', 'Driver'),
+('2017-W48', 550882530, 'Thursday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Thursday', 'Night', 'Driver'),
+('2017-W48', 550882530, 'Tuesday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Tuesday', 'Night', 'Driver'),
+('2017-W48', 550882530, 'Wednesday', 'Day', 'Driver'),
+('2017-W48', 550882530, 'Wednesday', 'Night', 'Driver'),
+('2017-W49', 111111111, 'Friday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Friday', 'Night', 'Manager'),
+('2017-W49', 111111111, 'Monday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Monday', 'Night', 'Manager'),
+('2017-W49', 111111111, 'Saturday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Saturday', 'Night', 'Manager'),
+('2017-W49', 111111111, 'Sunday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Sunday', 'Night', 'Manager'),
+('2017-W49', 111111111, 'Thursday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Thursday', 'Night', 'Manager'),
+('2017-W49', 111111111, 'Tuesday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Tuesday', 'Night', 'Manager'),
+('2017-W49', 111111111, 'Wednesday', 'Day', 'Manager'),
+('2017-W49', 111111111, 'Wednesday', 'Night', 'Manager'),
+('2017-W49', 440645320, 'Friday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Friday', 'Night', 'Cook'),
+('2017-W49', 440645320, 'Monday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Monday', 'Night', 'Cook'),
+('2017-W49', 440645320, 'Saturday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Saturday', 'Night', 'Cook'),
+('2017-W49', 440645320, 'Sunday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Sunday', 'Night', 'Cook'),
+('2017-W49', 440645320, 'Thursday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Thursday', 'Night', 'Cook'),
+('2017-W49', 440645320, 'Tuesday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Tuesday', 'Night', 'Cook'),
+('2017-W49', 440645320, 'Wednesday', 'Day', 'Cook'),
+('2017-W49', 440645320, 'Wednesday', 'Night', 'Cook'),
+('2017-W49', 550882530, 'Friday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Friday', 'Night', 'Driver'),
+('2017-W49', 550882530, 'Monday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Monday', 'Night', 'Driver'),
+('2017-W49', 550882530, 'Saturday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Saturday', 'Night', 'Driver'),
+('2017-W49', 550882530, 'Sunday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Sunday', 'Night', 'Driver'),
+('2017-W49', 550882530, 'Thursday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Thursday', 'Night', 'Driver'),
+('2017-W49', 550882530, 'Tuesday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Tuesday', 'Night', 'Driver'),
+('2017-W49', 550882530, 'Wednesday', 'Day', 'Driver'),
+('2017-W49', 550882530, 'Wednesday', 'Night', 'Driver'),
+('2017-W50', 111111111, 'Friday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Friday', 'Night', 'Manager'),
+('2017-W50', 111111111, 'Monday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Monday', 'Night', 'Manager'),
+('2017-W50', 111111111, 'Saturday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Saturday', 'Night', 'Manager'),
+('2017-W50', 111111111, 'Sunday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Sunday', 'Night', 'Manager'),
+('2017-W50', 111111111, 'Thursday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Thursday', 'Night', 'Manager'),
+('2017-W50', 111111111, 'Tuesday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Tuesday', 'Night', 'Manager'),
+('2017-W50', 111111111, 'Wednesday', 'Day', 'Manager'),
+('2017-W50', 111111111, 'Wednesday', 'Night', 'Manager'),
+('2017-W50', 440645320, 'Friday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Friday', 'Night', 'Cook'),
+('2017-W50', 440645320, 'Monday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Monday', 'Night', 'Cook'),
+('2017-W50', 440645320, 'Saturday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Saturday', 'Night', 'Cook'),
+('2017-W50', 440645320, 'Sunday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Sunday', 'Night', 'Cook'),
+('2017-W50', 440645320, 'Thursday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Thursday', 'Night', 'Cook'),
+('2017-W50', 440645320, 'Tuesday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Tuesday', 'Night', 'Cook'),
+('2017-W50', 440645320, 'Wednesday', 'Day', 'Cook'),
+('2017-W50', 440645320, 'Wednesday', 'Night', 'Cook'),
+('2017-W50', 550882530, 'Friday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Friday', 'Night', 'Driver'),
+('2017-W50', 550882530, 'Monday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Monday', 'Night', 'Driver'),
+('2017-W50', 550882530, 'Saturday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Saturday', 'Night', 'Driver'),
+('2017-W50', 550882530, 'Sunday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Sunday', 'Night', 'Driver'),
+('2017-W50', 550882530, 'Thursday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Thursday', 'Night', 'Driver'),
+('2017-W50', 550882530, 'Tuesday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Tuesday', 'Night', 'Driver'),
+('2017-W50', 550882530, 'Wednesday', 'Day', 'Driver'),
+('2017-W50', 550882530, 'Wednesday', 'Night', 'Driver'),
+('2017-W52', 111111111, 'Friday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Friday', 'Night', 'Manager'),
+('2017-W52', 111111111, 'Monday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Monday', 'Night', 'Manager'),
+('2017-W52', 111111111, 'Saturday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Saturday', 'Night', 'Manager'),
+('2017-W52', 111111111, 'Sunday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Sunday', 'Night', 'Manager'),
+('2017-W52', 111111111, 'Thursday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Thursday', 'Night', 'Manager'),
+('2017-W52', 111111111, 'Tuesday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Tuesday', 'Night', 'Manager'),
+('2017-W52', 111111111, 'Wednesday', 'Day', 'Manager'),
+('2017-W52', 111111111, 'Wednesday', 'Night', 'Manager'),
+('2017-W52', 440645320, 'Friday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Friday', 'Night', 'Cook'),
+('2017-W52', 440645320, 'Monday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Monday', 'Night', 'Cook'),
+('2017-W52', 440645320, 'Saturday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Saturday', 'Night', 'Cook'),
+('2017-W52', 440645320, 'Sunday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Sunday', 'Night', 'Cook'),
+('2017-W52', 440645320, 'Thursday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Thursday', 'Night', 'Cook'),
+('2017-W52', 440645320, 'Tuesday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Tuesday', 'Night', 'Cook'),
+('2017-W52', 440645320, 'Wednesday', 'Day', 'Cook'),
+('2017-W52', 440645320, 'Wednesday', 'Night', 'Cook'),
+('2017-W52', 550882530, 'Friday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Friday', 'Night', 'Driver'),
+('2017-W52', 550882530, 'Monday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Monday', 'Night', 'Driver'),
+('2017-W52', 550882530, 'Saturday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Saturday', 'Night', 'Driver'),
+('2017-W52', 550882530, 'Sunday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Sunday', 'Night', 'Driver'),
+('2017-W52', 550882530, 'Thursday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Thursday', 'Night', 'Driver'),
+('2017-W52', 550882530, 'Tuesday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Tuesday', 'Night', 'Driver'),
+('2017-W52', 550882530, 'Wednesday', 'Day', 'Driver'),
+('2017-W52', 550882530, 'Wednesday', 'Night', 'Driver');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `Username` varchar(255) NOT NULL,
+  `ID` int(9) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `User_Type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`Username`, `ID`, `Password`, `User_Type`) VALUES
+('amcallister', 193600971, 'pass', ''),
+('bmarley', 550882530, 'pass', 'Driver'),
+('jdaniels', 111111111, 'pass', 'Manager'),
+('jdoe', 440645320, 'pass', 'Cook'),
+('kvo', 531324778, 'pass', 'Cook'),
+('pborowoy', 145412771, 'pass', 'Customer');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cook`
+--
+ALTER TABLE `cook`
+  ADD PRIMARY KEY (`EID`),
+  ADD KEY `OID` (`OID`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`CID`);
+
+--
+-- Indexes for table `driver`
+--
+ALTER TABLE `driver`
+  ADD PRIMARY KEY (`EID`),
+  ADD UNIQUE KEY `OID` (`OID`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`EID`);
+
+--
+-- Indexes for table `inventory`
+--
+ALTER TABLE `inventory`
+  ADD PRIMARY KEY (`VID`);
+
+--
+-- Indexes for table `manager`
+--
+ALTER TABLE `manager`
+  ADD PRIMARY KEY (`EID`);
+
+--
+-- Indexes for table `menuitem`
+--
+ALTER TABLE `menuitem`
+  ADD PRIMARY KEY (`IID`);
+
+--
+-- Indexes for table `order`
+--
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`OID`),
+  ADD KEY `CID` (`CID`),
+  ADD KEY `Date` (`Date`);
+
+--
+-- Indexes for table `orderitems`
+--
+ALTER TABLE `orderitems`
+  ADD PRIMARY KEY (`OID`,`ItemIndex`);
+
+--
+-- Indexes for table `revenue`
+--
+ALTER TABLE `revenue`
+  ADD PRIMARY KEY (`Week`);
+
+--
+-- Indexes for table `shift`
+--
+ALTER TABLE `shift`
+  ADD PRIMARY KEY (`Week`,`EID`,`Day`,`Shift_Type`,`Position`),
+  ADD KEY `Date` (`Week`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`Username`),
+  ADD UNIQUE KEY `EID_or_CID` (`ID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cook`
+--
+ALTER TABLE `cook`
+  ADD CONSTRAINT `cook_ibfk_1` FOREIGN KEY (`EID`) REFERENCES `employee` (`EID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cook_ibfk_2` FOREIGN KEY (`OID`) REFERENCES `order` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`CID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `driver`
+--
+ALTER TABLE `driver`
+  ADD CONSTRAINT `driver_ibfk_2` FOREIGN KEY (`OID`) REFERENCES `order` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `driver_ibfk_3` FOREIGN KEY (`EID`) REFERENCES `employee` (`EID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `employee`
+--
+ALTER TABLE `employee`
+  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`EID`) REFERENCES `user` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `manager`
+--
+ALTER TABLE `manager`
+  ADD CONSTRAINT `manager_ibfk_1` FOREIGN KEY (`EID`) REFERENCES `employee` (`EID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`CID`) REFERENCES `customer` (`CID`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

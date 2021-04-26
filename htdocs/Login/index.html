@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>index.html</title>
+<link href="../custMain/layout.css" rel="stylesheet" type="text/css">
+</head>
+
+<body background="../images/basil-cherry-tomatoes-colorful-ingredients-1920x1080.jpg">
+
+	<div class="column sidebar" style="width: 60%; height: 100%; overflow: hidden; padding: 10px;">
+
+		<table align="right" height="100%" width="80%" cellspacing="0" cellpadding="0">
+			
+			<form action ="checkuser.php" method="post">
+				
+			<tr height="1%"/>
+			<tr height="10%">
+				<td bgcolor="#373737" align="left" colspan="1" class="underlined">
+					<p style="margin: 0px; margin-left: 30px; font-size: 30px; letter-spacing: 15px;">
+						Login
+					</p>
+				</td>
+			</tr>
+			<tr height="10px"/>
+			<tr height="20%" bgcolor="#4D4D4D"  style="border: 20px solid #FFD235;">
+				<td align="left">
+					<p style="margin-left: 40px; font-size: 30px; letter-spacing: 15px;">
+						Username
+					</p>
+				</td>
+				<td align="center">
+					<input type="text" name="login_name" value="" style="height: 70px; width: 90%; font-size: 30px; letter-spacing: 10px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="20%" bgcolor="#5A5A5A">
+				<td align="left">
+					<p style="margin-left: 40px; font-size: 30px; letter-spacing: 15px;">
+						Password
+					</p>
+				</td>
+				<td align="center">
+					<input type="password" name="password" value="" style="height: 70px; width: 90%; font-size: 30px; letter-spacing: 10px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="10"/>
+			<tr height="10%">
+				<td colspan="2" align="center" width="100%">
+					<input type="hidden" name="loginButton" value="Login"/>
+					<button style="height: 100%; width: 100%; font-size: 30px; letter-spacing: 15px;">Login</button>
+				</td>
+			</tr>
+			
+			<tr height="1%"/>
+	
+			</form>
+
+		</table>
+		
+	</div>
+
+	<div class="column sidebar" style="width: 35%; height: 100%; overflow: hidden; padding: 10px;">
+
+		<table align="center" height="100%" width="100%" cellspacing="0">
+			<form action ="registeruser.php" method="POST">
+				
+			<tr height="2%"/>
+			<tr height="10%" bgcolor="#515151">
+				<td bgcolor="#373737" align="left" colspan="1" class="underlined">
+					<p style="margin: 0px; margin-left: 40px; font-size: 28px; letter-spacing: 15px;">
+						Register
+					</p>
+				</td>
+			</tr>
+			<tr height="10px"/>
+			<tr height="10%" bgcolor="#3D3D3D">
+				<td align="left">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						Username
+					</p>
+				</td>
+				<td align="left">
+					<input type="text" name="login_name" value="" style="height: 35px; width:300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="10%" bgcolor="#494949">
+				<td align="left" width="50%">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						Password
+					</p>
+				</td>
+				<td align="left" width="50%">
+					<input type="password" name="password" value="" style="height: 35px; width: 300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="10%" bgcolor="#535353">
+				<td align="left" width="50%">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						Verify
+					</p>
+				</td>
+				<td align="left" width="50%">
+					<input type="password" name="passwordVerify" value="" style="height: 35px; width: 300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="10%" bgcolor="#5E5E5E">
+				<td align="left" width="50%">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						First
+					</p>
+				</td>
+				<td align="left" width="50%">
+					<input type="text" name="firstName" value="" style="height: 35px; width: 300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>				
+			</tr>
+			<tr height="10%" bgcolor="#676767">
+				<td align="left" width="50%">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						Last
+					</p>
+				</td>
+				<td align="left" width="50%">
+					<input type="text" name="lastName" value="" style="height: 35px; width: 300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+
+			<tr height="10%" bgcolor="#727272">
+				<td align="left" width="50%">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						Phone
+					</p>
+				</td>
+				<td align="left" width="50%">
+					<input type="text" name="phone" value="" style="height: 35px; width: 300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="10%" bgcolor="#808080">
+				<td align="left" width="50%">
+					<p style=" margin-left: 40px; font-size: 20px; letter-spacing: 10px;">
+						Address
+					</p>
+				</td>
+				<td align="left" width="50%">
+					<input type="text" name="address" value="" style="height: 35px; width: 300px; font-size: 20px; letter-spacing: 5px; background-color: #313131; border: 0;"/>
+				</td>
+			</tr>
+			<tr height="10"/>
+			<tr height="10%">
+				<td colspan="2" align="center" width="100%">
+					<input type="hidden" name="submitButton" value="Submit"/>
+					<button style="height: 100%; width: 100%; font-size: 30px; letter-spacing: 15px;">Register</button>
+				</td>
+			</tr>
+				<tr height="2%"/>
+
+			</form>
+		</table>
+		
+	</div>
+	
+</body>
+</html>

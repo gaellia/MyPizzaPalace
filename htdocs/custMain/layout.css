@@ -1,0 +1,195 @@
+@charset "utf-8";
+*
+{
+	box-sizing: border-box;
+	font-family: Helvetica, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	text-decoration: none;
+	font-weight: 100;
+	color: #DCDCDC;
+	font-kerning: none;
+	letter-spacing: 3px;
+}
+html, body
+{
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+button 
+{
+    background-color: #686868;
+    border: none;
+    color: #DCDCDC;
+    padding: 15px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+button:hover
+{
+    color:#00FFD3;
+    background-color: #4D4D4D;
+}
+.bar
+{
+	height: 5px;
+	width: 100%;
+	padding: 0px;
+}
+.underlined
+{
+	border-bottom: 5px solid #686868;
+}
+.leftbar
+{
+	border-left: 5px solid #DCDCDC;
+}
+.topmenu
+{
+	margin: 0px;
+	padding: 0px;
+	background-color: #373737;
+	list-style-type: none;
+	overflow: hidden;
+}
+.topmenu li
+{
+	float: left;
+}
+.topmenu li span
+{
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 35px;
+	font-size: 40px;
+	letter-spacing: 10px;
+	color: #DCDCDC;
+}
+
+.topmenu li a
+{
+	display: inline-block;
+	color: #DCDCDC;
+	text-align: center;
+	vertical-align: middle;
+}
+.topmenu li a:hover
+{
+	color: #00FFD3;
+	background-color: #4D4D4D;
+}
+.topmenu li a img
+{
+	vertical-align: middle;
+	padding: 5px;
+}
+
+
+
+
+
+.left
+{
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+.right
+{
+	float: right;
+	margin: 0px;
+	padding: 0px;
+}
+
+.column
+{
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+.clearfix::after
+{
+	content: "";
+	clear: both;
+	display: table;
+}
+.sidebar
+{
+	width: 25%;
+	margin: 0px;
+	padding: 0px;
+}
+.content
+{
+	width: 75%;
+	margin: 0px;
+	padding: 0px;
+}
+.sidebar ul
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 5px 0px 0px 0px;
+}
+.sidebar li a
+{
+	display: block;
+	color:#DCDCDC;
+	background-color: #5F5F5F;
+	text-align: center;
+	margin: 0px;
+	padding: 1px;
+}
+.teal
+{
+	border-right: 5px solid #00FFD3;
+}
+.teal:hover
+{
+	color: #1DFFF4;
+	background-color: #4D4D4D;
+}
+.yellow
+{
+	border-right: 5px solid #EFFF50;
+}
+.yellow:hover
+{
+	color: #EFFF50;
+	background-color: #4D4D4D;
+}
+.orange
+{
+	border-right: 5px solid #FFD235;
+}
+.orange:hover
+{
+	color: #FFD235;
+	background-color: #4D4D4D;
+}
+.red
+{
+	border-right: 5px solid #FF4447;
+}
+.red:hover
+{
+	color: #FF4447;
+	background-color: #4D4D4D;
+}
+.green
+{
+	border-right: 5px solid #00FF7C;
+}
+.green:hover
+{
+	color: #00FF7C;
+	background-color: #4D4D4D;
+}
+
+
+
+
+
